@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Rules\TipoPlanoRules.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Rules\TipoPlanoRules.cs" />
   </ItemGroup>
 
 </Project>
