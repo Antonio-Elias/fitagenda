@@ -12,13 +12,23 @@ public class AulaMapping : IEntityTypeConfiguration<Aula>
 
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.Id)
+            .HasColumnName("id");
+
+        builder.Property(x => x.CodigoTipoAula)
+            .HasColumnName("codigo_tipo_aula")
+            .IsRequired();
+
         builder.Property(x => x.CapacidadeMaxima)
+            .HasColumnName("capacidade_maxima")
             .IsRequired();
 
         builder.Property(x => x.DataHora)
+            .HasColumnName("data_hora")
             .IsRequired();
 
         builder.Property(x => x.Ativa)
+            .HasColumnName("ativa")
             .IsRequired();
 
         builder.HasOne(x => x.TipoAula)

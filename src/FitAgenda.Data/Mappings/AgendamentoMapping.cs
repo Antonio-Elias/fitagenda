@@ -12,7 +12,23 @@ public class AgendamentoMapping : IEntityTypeConfiguration<Agendamento>
 
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.Id)
+            .HasColumnName("id");
+
+        builder.Property(x => x.CodigoAluno)
+            .HasColumnName("codigo_aluno")
+            .IsRequired();
+
+        builder.Property(x => x.CodigoAula)
+            .HasColumnName("codigo_aula")
+            .IsRequired();
+
+        builder.Property(x => x.DataAgendamento)
+            .HasColumnName("data_agendamento")
+            .IsRequired();
+
         builder.Property(x => x.Ativo)
+            .HasColumnName("ativo")
             .IsRequired();
 
         builder.HasOne(x => x.Aluno)
@@ -24,6 +40,7 @@ public class AgendamentoMapping : IEntityTypeConfiguration<Agendamento>
             .HasForeignKey(x => x.CodigoAula);
 
         builder.HasIndex(x => new { x.CodigoAluno, x.CodigoAula })
+            .HasDatabaseName("ix_agendamentos_codigo_aluno_codigo_aula")
             .IsUnique();
     }
 }

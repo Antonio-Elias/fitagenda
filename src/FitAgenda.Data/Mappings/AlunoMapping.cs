@@ -13,14 +13,20 @@ public class AlunoMapping : IEntityTypeConfiguration<Aluno>
 
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.Id)
+            .HasColumnName("id");
+
         builder.Property(x => x.Nome)
+            .HasColumnName("nome")
             .IsRequired()
             .HasMaxLength(150);
 
         builder.Property(x => x.TipoPlano)
+            .HasColumnName("tipo_plano")
             .IsRequired();
 
         builder.Property(x => x.Ativo)
+            .HasColumnName("ativo")
             .IsRequired();
     }
 }
