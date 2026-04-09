@@ -14,4 +14,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FitAgenda.Data\FitAgenda.Data.csproj" />
+  </ItemGroup>
+
 </Project>
