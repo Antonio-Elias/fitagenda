@@ -1,0 +1,86 @@
+# Build results
+
+bin/
+obj/
+
+# Visual Studio
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+
+.idea/
+*.sln.iml
+
+# VS Code
+
+.vscode/
+
+# Logs
+
+*.log
+
+# Environment variables
+
+.env
+
+# ASP.NET Core
+
+appsettings.Development.json
+
+# Publish
+
+publish/
+*.pubxml
+*.publishproj
+
+# NuGet
+
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# EF Core
+
+Migrations/*.Designer.cs
+
+# OS files
+
+Thumbs.db
+.DS_Store
+
+# IIS Express
+
+iisexpress/
+*.dbmdl
+
+# SQL Server
+
+*.mdf
+*.ldf
+
+# Coverage / Test
+
+coverage/
+*.coverage
+*.coveragexml
+TestResults/
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# Resharper
+
+_ReSharper*/
+*.DotSettings.user
+
+# Docker
+
+docker-compose.override.yml

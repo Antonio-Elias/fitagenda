@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FitAgenda.Api/FitAgenda.Api.csproj" />
+    <Project Path="src/FitAgenda.Data/FitAgenda.Data.csproj" />
+    <Project Path="src/FitAgenda.Domain/FitAgenda.Domain.csproj" />
+  </Folder>
+</Solution>
