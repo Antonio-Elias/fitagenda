@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FitAgenda.Domain\FitAgenda.Domain.csproj" />
     <ProjectReference Include="..\FitAgenda.Data\FitAgenda.Data.csproj" />
   </ItemGroup>
 
