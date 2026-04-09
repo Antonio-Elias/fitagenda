@@ -15,4 +15,9 @@ public class AlunoService : BaseService, IAlunoService
     {
         ExecutarValidacao(new AlunoValidation(), aluno);
     }
+
+    public void Atualizar(Aluno aluno)
+    {
+        ExecutarValidacao(new AlunoValidation(), aluno);
+    }
 }

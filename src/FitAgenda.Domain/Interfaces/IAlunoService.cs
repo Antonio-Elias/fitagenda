@@ -5,4 +5,5 @@ namespace FitAgenda.Domain.Interfaces;
 public interface IAlunoService
 {
     void Criar(Aluno aluno);
+    void Atualizar(Aluno aluno);
 }
