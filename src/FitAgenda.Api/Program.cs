@@ -1,13 +1,9 @@
-using FitAgenda.Data.Context;
-using Microsoft.EntityFrameworkCore;
+using FitAgenda.Api.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.ResolveDependencies(builder.Configuration);
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
