@@ -53,12 +53,12 @@ public class TiposAulaController : BaseController
     [HttpPost("CadastrarTipoDeAula", Name = "CadastrarTipoDeAula")]
     [ProducesResponseType(typeof(ApiSuccessResponse<TipoAulaDto>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CadastrarTipoDeAula([FromBody] CadastrarTipoAulaDto request)
+    public async Task<IActionResult> CadastrarTipoDeAula([FromBody] CadastrarTipoAulaDto dto)
     {
         if (!ModelState.IsValid)
             return CustomResponse(ModelState);
 
-        var tipoAula = new TipoAula(request.Nome, request.Ativo);
+        var tipoAula = new TipoAula(dto.Nome, dto.Ativo);
         var tiposExistentes = await _tipoAulaRepository.ObterTodos();
 
         _tipoAulaService.Criar(tipoAula, tiposExistentes);
@@ -75,7 +75,7 @@ public class TiposAulaController : BaseController
     [ProducesResponseType(typeof(ApiSuccessResponse<TipoAulaDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> AtualizarTipoDeAula(Guid id, [FromBody] AtualizarTipoAulaDto request)
+    public async Task<IActionResult> AtualizarTipoDeAula(Guid id, [FromBody] AtualizarTipoAulaDto dto)
     {
         if (!ModelState.IsValid)
             return CustomResponse(ModelState);
@@ -88,8 +88,8 @@ public class TiposAulaController : BaseController
             return CustomResponse(HttpStatusCode.NotFound);
         }
 
-        tipoAula.Renomear(request.Nome);
-        tipoAula.DefinirStatus(request.Ativo);
+        tipoAula.Renomear(dto.Nome);
+        tipoAula.DefinirStatus(dto.Ativo);
 
         var tiposExistentes = await _tipoAulaRepository.ObterTodos();
 
