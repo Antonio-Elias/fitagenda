@@ -1,3 +1,4 @@
+using FitAgenda.Api.Views.Common;
 using FitAgenda.Domain.Interfaces;
 using FitAgenda.Domain.Notifications;
 using Microsoft.AspNetCore.Mvc;
@@ -25,10 +26,10 @@ public abstract class BaseController : ControllerBase
     {
         if (OperacaoValida())
         {
-            return new ObjectResult(new
+            return new ObjectResult(new ApiSuccessResponse<object>
             {
-                sucesso = true,
-                dados = result
+                Sucesso = true,
+                Dados = result
             })
             {
                 StatusCode = (int)statusCode
@@ -39,10 +40,10 @@ public abstract class BaseController : ControllerBase
             ? HttpStatusCode.BadRequest
             : statusCode;
 
-        return new ObjectResult(new
+        return new ObjectResult(new ApiErrorResponse
         {
-            sucesso = false,
-            erros = _notificador.ObterNotificacoes().Select(notificacao => notificacao.Mensagem)
+            Sucesso = false,
+            Erros = _notificador.ObterNotificacoes().Select(notificacao => notificacao.Mensagem)
         })
         {
             StatusCode = (int)errorStatusCode
