@@ -14,14 +14,27 @@ public class AulaService : BaseService, IAulaService
 
     public void Criar(Aula aula, TipoAula tipoAula)
     {
-        ExecutarValidacao(new AulaValidation(), aula);
+        ValidarEntidade(aula);
+
+        if (TemNotificacao())
+            return;
+
         ValidarTipoAulaAtivo(tipoAula);
     }
 
     public void Atualizar(Aula aula, TipoAula tipoAula)
     {
-        ExecutarValidacao(new AulaValidation(), aula);
+        ValidarEntidade(aula);
+
+        if (TemNotificacao())
+            return;
+
         ValidarTipoAulaAtivo(tipoAula);
+    }
+
+    private void ValidarEntidade(Aula aula)
+    {
+        ExecutarValidacao(new AulaValidation(), aula);
     }
 
     private void ValidarTipoAulaAtivo(TipoAula tipoAula)

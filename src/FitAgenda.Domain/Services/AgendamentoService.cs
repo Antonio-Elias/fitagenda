@@ -15,9 +15,14 @@ public class AgendamentoService : BaseService, IAgendamentoService
     public Agendamento? Agendar(Aluno aluno, Aula aula)
     {
         ValidarEntidades(aluno, aula);
+
+        if (TemNotificacao())
+            return null;
+
         ValidarRegrasDeNegocio(aluno, aula);
 
-        if (TemNotificacao()) return null;
+        if (TemNotificacao())
+            return null;
 
         return new Agendamento(aluno.Id, aula.Id);
     }

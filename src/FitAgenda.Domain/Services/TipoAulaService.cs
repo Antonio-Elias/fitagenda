@@ -13,14 +13,27 @@ public class TipoAulaService : BaseService, ITipoAulaService
 
     public void Criar(TipoAula tipoAula, IEnumerable<TipoAula> tiposExistentes)
     {
-        ExecutarValidacao(new TipoAulaValidation(), tipoAula);
+        ValidarEntidade(tipoAula);
+
+        if (TemNotificacao())
+            return;
+
         ValidarNomeDuplicado(tipoAula.Nome, tiposExistentes);
     }
 
     public void Atualizar(TipoAula tipoAula, IEnumerable<TipoAula> tiposExistentes)
     {
-        ExecutarValidacao(new TipoAulaValidation(), tipoAula);
+        ValidarEntidade(tipoAula);
+
+        if (TemNotificacao())
+            return;
+
         ValidarNomeDuplicado(tipoAula.Nome, tiposExistentes, tipoAula.Id);
+    }
+
+    private void ValidarEntidade(TipoAula tipoAula)
+    {
+        ExecutarValidacao(new TipoAulaValidation(), tipoAula);
     }
 
     private void ValidarNomeDuplicado(string nome, IEnumerable<TipoAula> tiposExistentes, Guid? idIgnorar = null)
