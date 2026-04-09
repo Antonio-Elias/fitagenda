@@ -8,7 +8,7 @@ public class TipoAulaMapping : IEntityTypeConfiguration<TipoAula>
 {
     public void Configure(EntityTypeBuilder<TipoAula> builder)
     {
-        builder.ToTable("tipoaula");
+        builder.ToTable("tipo_aula");
 
         builder.HasKey(x => x.Id);
 
