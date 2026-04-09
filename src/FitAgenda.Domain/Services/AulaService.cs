@@ -18,6 +18,12 @@ public class AulaService : BaseService, IAulaService
         ValidarTipoAulaAtivo(tipoAula);
     }
 
+    public void Atualizar(Aula aula, TipoAula tipoAula)
+    {
+        ExecutarValidacao(new AulaValidation(), aula);
+        ValidarTipoAulaAtivo(tipoAula);
+    }
+
     private void ValidarTipoAulaAtivo(TipoAula tipoAula)
     {
         if (!tipoAula.Ativo)
