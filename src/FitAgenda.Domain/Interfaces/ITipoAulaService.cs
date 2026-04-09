@@ -1,10 +1,9 @@
-﻿using FitAgenda.Domain.Models;
+using FitAgenda.Domain.Models;
 
-namespace FitAgenda.Domain.Interfaces
+namespace FitAgenda.Domain.Interfaces;
+
+public interface ITipoAulaService
 {
-    public interface ITipoAulaService
-    {
-        void Criar(TipoAula tipoAula, IEnumerable<TipoAula> tiposExistentes);
-        void Atualizar(TipoAula tipoAula, IEnumerable<TipoAula> tiposExistentes);
-    }
+    void Criar(TipoAula tipoAula, IEnumerable<TipoAula> tiposExistentes);
+    void Atualizar(TipoAula tipoAula, IEnumerable<TipoAula> tiposExistentes);
 }

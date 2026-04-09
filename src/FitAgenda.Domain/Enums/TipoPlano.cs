@@ -1,9 +1,8 @@
-﻿namespace FitAgenda.Domain.Enums
+namespace FitAgenda.Domain.Enums;
+
+public enum TipoPlano
 {
-    public enum TipoPlano
-    {
-        Mensal = 1,
-        Trimestral = 2,
-        Anual = 3
-    }
+    Mensal = 1,
+    Trimestral = 2,
+    Anual = 3
 }
