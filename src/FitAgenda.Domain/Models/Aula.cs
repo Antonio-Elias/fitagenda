@@ -6,24 +6,24 @@ public class Aula : Entity
     {
     }
 
-    public Aula(Guid CodigoAula, DateTime dataHora, int capacidadeMaxima)
+    public Aula(Guid codigoTipoAula, DateTime dataHora, int capacidadeMaxima)
     {
-        DefinirTipoAula(CodigoAula);
+        DefinirTipoAula(codigoTipoAula);
         AtualizarDataHora(dataHora);
         DefinirCapacidadeMaxima(capacidadeMaxima);
         Ativar();
     }
 
-    public Guid CodigoAula { get; private set; }
+    public Guid CodigoTipoAula { get; private set; }
     public TipoAula TipoAula { get; private set; } = null!;
     public DateTime DataHora { get; private set; }
     public int CapacidadeMaxima { get; private set; }
     public bool Ativa { get; private set; }
     public ICollection<Agendamento> Agendamentos { get; private set; } = new List<Agendamento>();
 
-    public void DefinirTipoAula(Guid tipoAulaId)
+    public void DefinirTipoAula(Guid codigoTipoAula)
     {
-        CodigoAula = tipoAulaId;
+        CodigoTipoAula = codigoTipoAula;
     }
 
     public void AtualizarDataHora(DateTime dataHora)
